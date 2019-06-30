@@ -33,7 +33,7 @@ ReactDOM.render(
   <Provider store={store}>
         <Router history={hist}>
           <div className="App">
-            <Route exact path="/" component={Homepage} />
+            <Route exact path="/" component={Login} />
             <Route exact path="/register" component={Register} />
             <Route exact path="/login" component={Login} />
             <Switch>

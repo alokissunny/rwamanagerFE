@@ -252,7 +252,7 @@ class Notice extends React.Component {
               ]}
             />
           </GridItem>
-          <GridItem xs={12} sm={12} md={6}>
+          {/* <GridItem xs={12} sm={12} md={6}>
             <Card>
               <CardHeader color="warning">
                 <h4 className={classes.cardTitleWhite}>Employees Stats</h4>
@@ -273,7 +273,7 @@ class Notice extends React.Component {
                 />
               </CardBody>
             </Card>
-          </GridItem>
+          </GridItem> */}
         </GridContainer> 
       </div>
     );

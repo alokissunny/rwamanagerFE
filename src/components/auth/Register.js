@@ -10,6 +10,8 @@ class Register extends Component {
     super();
     this.state = {
       name: "",
+      rwa:"",
+      planType:"",
       email: "",
       password: "",
       password2: "",
@@ -19,9 +21,9 @@ class Register extends Component {
 
   componentDidMount() {
     // If logged in and user navigates to Register page, should redirect them to dashboard
-    if (this.props.auth.isAuthenticated) {
-      this.props.history.push("/dashboard");
-    }
+    // if (this.props.auth.isAuthenticated) {
+    //   this.props.history.push("/dashboard");
+    // }
   }
 
   componentWillReceiveProps(nextProps) {
@@ -35,13 +37,18 @@ class Register extends Component {
   onChange = e => {
     this.setState({ [e.target.id]: e.target.value });
   };
-
+  getSubdomain(hostname) {
+    var regexParse = new RegExp('[a-z\-0-9]{2,63}\.[a-z\.]{2,5}$');
+    var urlParts = regexParse.exec(hostname);
+    return hostname.replace(urlParts[0],'').slice(0, -1);
+}
   onSubmit = e => {
     e.preventDefault();
-
+    let sub = this.getSubdomain('vcap.me');
     const newUser = {
       name: this.state.name,
       email: this.state.email,
+      domain: sub,
       password: this.state.password,
       password2: this.state.password2
     };
@@ -56,17 +63,17 @@ class Register extends Component {
       <div className="container">
         <div className="row">
           <div className="col s8 offset-s2">
-            <Link to="/" className="btn-flat waves-effect">
+            {/* <Link to="/" className="btn-flat waves-effect">
               <i className="material-icons left">keyboard_backspace</i> Back to
               home
-            </Link>
+            </Link> */}
             <div className="col s12" style={{ paddingLeft: "11.250px" }}>
               <h4>
                 <b>Register</b> below
               </h4>
-              <p className="grey-text text-darken-1">
+              {/* <p className="grey-text text-darken-1">
                 Already have an account? <Link to="/login">Log in</Link>
-              </p>
+              </p> */}
             </div>
             <form noValidate onSubmit={this.onSubmit}>
               <div className="input-field col s12">
