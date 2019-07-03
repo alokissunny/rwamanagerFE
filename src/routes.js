@@ -17,6 +17,7 @@ import Typography from "views/Typography/Typography.jsx";
 import Icons from "views/Icons/Icons.jsx";
 import Maps from "views/Maps/Maps.jsx";
 import NotificationsPage from "views/Notifications/Notifications.jsx";
+import BlogsContainer from 'views/Blogs/BlogsContainer';
 import UpgradeToPro from "views/UpgradeToPro/UpgradeToPro.jsx";
 // core components/views for RTL layout
 import RTLPage from "views/RTLPage/RTLPage.jsx";
@@ -35,6 +36,13 @@ const dashboardRoutes = [
     name: "Register New",
     icon: 'content_paste',
     component: RegisterNew,
+    layout: "/admin"
+  },
+  {
+    path: "/ResidentVoice",
+    name: "Residents Voice",
+    icon: 'content_paste',
+    component: BlogsContainer,
     layout: "/admin"
   },
   // {
